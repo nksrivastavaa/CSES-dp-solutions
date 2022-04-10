@@ -115,11 +115,8 @@ void solve() {
 
     vvb dp(n+1, vb(maxSum + 1, 0)); //dp[i][x] --> if sum x can be made using first i coins;
     
-    dp[n][maxSum] = 1;
-    dp[0][x[1]] = 1;
-    
     for(int i = 0; i<=n; i++){
-        for(int j = 0; j<maxSum; j++){
+        for(int j = 0; j<=maxSum; j++){
             if(i == 0 && j == 0){
                 dp[i][j] = 1;
                 continue;
@@ -135,7 +132,9 @@ void solve() {
             dp[i][j] = (i-1 >= 0 ? dp[i-1][j] : 0) || (j-x[i] >= 0 ? dp[i-1][j-x[i]] : 0);
         }
     }
+
     dbg(dp)
+    
     vi ans;
     for(int i = 1; i<=maxSum; i++){
         if(dp[n][i]) ans.pb(i);
