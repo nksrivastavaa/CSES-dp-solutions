@@ -121,7 +121,7 @@ void solve() {
 
     sort(all(project), sortByEndDay);
     
-    vl dp(n+1, 0); /* dp[i] --> maximum money earnt on choosing any(maybe all) of 
+    vl dp(n+1, 0); /* dp[i] --> maximum money earnt on choosing any(possibly all) of 
     the first i projects {p1, p2, ....., pi} */ 
 
     for(int i = 1; i<=n; i++){
